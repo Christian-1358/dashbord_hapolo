@@ -1,0 +1,13 @@
+{
+  "name": "layout",
+  "version": "1.0.0",
+  "description": "Dashboards e landing pages do projeto Hapolo Energia",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./css/tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  }
+}

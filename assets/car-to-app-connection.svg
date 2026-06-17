@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none">
+  <!-- Fundo escuro -->
+  <rect width="400" height="240" rx="20" fill="#12141c"/>
+
+  <!-- Padrão de pontos sutil -->
+  <defs>
+    <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#2ecc71" opacity="0.18"/>
+    </pattern>
+    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2ecc71" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#2ecc71" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#2ecc71" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" rx="20" fill="url(#dots)"/>
+
+  <!-- ============ CARRO (esquerda) ============ -->
+  <g transform="translate(30, 110)">
+    <!-- corpo -->
+    <path d="M10 50 Q10 30 30 30 L60 30 L75 15 L130 15 L145 30 L175 30 Q195 30 195 50 L195 75 L10 75 Z"
+          fill="#16181f" stroke="#2ecc71" stroke-width="2"/>
+    <!-- janelas -->
+    <path d="M65 30 L78 18 L100 18 L100 30 Z" fill="#1a2d24" stroke="#2ecc71" stroke-width="1.5"/>
+    <path d="M105 30 L105 18 L127 18 L140 30 Z" fill="#1a2d24" stroke="#2ecc71" stroke-width="1.5"/>
+    <!-- rodas -->
+    <circle cx="55" cy="80" r="14" fill="#0d0e11" stroke="#2ecc71" stroke-width="2"/>
+    <circle cx="55" cy="80" r="5" fill="#2ecc71"/>
+    <circle cx="150" cy="80" r="14" fill="#0d0e11" stroke="#2ecc71" stroke-width="2"/>
+    <circle cx="150" cy="80" r="5" fill="#2ecc71"/>
+    <!-- farol -->
+    <circle cx="190" cy="45" r="4" fill="#2ecc71"/>
+    <!-- label -->
+    <text x="100" y="115" text-anchor="middle" fill="#7f8c8d" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="2">CARRO</text>
+  </g>
+
+  <!-- ============ LINHA DE CONEXÃO ============ -->
+  <g>
+    <!-- onda de conexão do carro -->
+    <path d="M235 70 Q245 60 235 50" stroke="#2ecc71" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M245 80 Q260 65 245 50" stroke="#2ecc71" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <path d="M255 90 Q275 65 255 45" stroke="#2ecc71" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"/>
+
+    <!-- linha principal -->
+    <line x1="235" y1="80" x2="305" y2="80" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round"/>
+    <!-- pequenos "pings" animados (estático aqui, mas visualmente ricos) -->
+    <circle cx="245" cy="80" r="2.5" fill="#2ecc71"/>
+    <circle cx="270" cy="80" r="3" fill="#2ecc71"/>
+    <circle cx="295" cy="80" r="2.5" fill="#2ecc71"/>
+
+    <!-- texto central -->
+    <text x="270" y="60" text-anchor="middle" fill="#2ecc71" font-family="Inter, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5">CONECTADO</text>
+
+    <!-- onda de conexão do app -->
+    <path d="M305 70 Q295 60 305 50" stroke="#2ecc71" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M315 80 Q330 65 315 50" stroke="#2ecc71" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+    <path d="M325 90 Q345 65 325 45" stroke="#2ecc71" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"/>
+  </g>
+
+  <!-- ============ CELULAR (direita) ============ -->
+  <g transform="translate(305, 35)">
+    <!-- corpo do celular -->
+    <rect x="0" y="0" width="65" height="120" rx="10" fill="#0d0e11" stroke="#2ecc71" stroke-width="2"/>
+    <!-- tela -->
+    <rect x="4" y="14" width="57" height="92" rx="3" fill="#16181f"/>
+    <!-- notch -->
+    <rect x="25" y="5" width="15" height="3" rx="1.5" fill="#000"/>
+    <!-- header -->
+    <rect x="8" y="18" width="49" height="2" rx="1" fill="#2ecc71"/>
+    <!-- conteúdo: cards -->
+    <rect x="8" y="24" width="22" height="14" rx="2" fill="#1c1f26" stroke="#2ecc71" stroke-width="0.5"/>
+    <text x="19" y="33" text-anchor="middle" fill="#2ecc71" font-family="Inter, sans-serif" font-size="5" font-weight="700">58%</text>
+    <rect x="35" y="24" width="22" height="14" rx="2" fill="#1c1f26"/>
+    <text x="46" y="33" text-anchor="middle" fill="#7f8c8d" font-family="Inter, sans-serif" font-size="5">0 km/h</text>
+
+    <!-- gráfico de barras -->
+    <rect x="8" y="42" width="4" height="10" fill="#2ecc71"/>
+    <rect x="14" y="42" width="4" height="14" fill="#2ecc71"/>
+    <rect x="20" y="42" width="4" height="8" fill="#2ecc71"/>
+    <rect x="26" y="42" width="4" height="18" fill="#2ecc71"/>
+    <rect x="32" y="42" width="4" height="12" fill="#2ecc71"/>
+    <rect x="38" y="42" width="4" height="20" fill="#2ecc71"/>
+    <rect x="44" y="42" width="4" height="9" fill="#2ecc71"/>
+    <rect x="50" y="42" width="4" height="16" fill="#2ecc71"/>
+
+    <!-- botões -->
+    <rect x="8" y="68" width="49" height="2" rx="1" fill="#1c1f26"/>
+    <rect x="8" y="74" width="49" height="2" rx="1" fill="#1c1f26"/>
+    <rect x="8" y="80" width="49" height="2" rx="1" fill="#1c1f26"/>
+
+    <!-- botão home -->
+    <circle cx="32.5" cy="111" r="2" fill="none" stroke="#2ecc71" stroke-width="0.8"/>
+
+    <!-- label -->
+    <text x="32.5" y="138" text-anchor="middle" fill="#7f8c8d" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="2">APP</text>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+# Dependências
+node_modules/
+
+# Ambiente virtual Python
+.venv/
+
+# Arquivos de CSS/JS individuais de dashboards (não usados — Tailwind é gerado em css/tailwind.css)
+css/dashbord*.css
+js/dashbord*.js

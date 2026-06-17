@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: electro-hapolo
+    runtime: python
+    plan: free
+    branch: main
+    buildCommand: npm install && npm run build:css
+    startCommand: python server.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9

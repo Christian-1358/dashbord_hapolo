@@ -8,7 +8,8 @@ import sys
 from pathlib import Path
 
 # ─── Configuração ───────────────────────────────────────────
-PORT = 8000
+PORT = int(os.environ.get("PORT", 8000))
+HOST = os.environ.get("HOST", "0.0.0.0")
 TEMPLATES_DIR = Path(__file__).parent / "templates"
 
 # Páginas disponíveis (atalho → arquivo)
@@ -101,7 +102,7 @@ def main():
     print()
 
     socketserver.TCPServer.allow_reuse_address = True
-    with ReuseAddrTCPServer(("", PORT), CustomHandler) as httpd:
+    with ReuseAddrTCPServer((HOST, PORT), CustomHandler) as httpd:
         httpd.serve_forever()
 
 

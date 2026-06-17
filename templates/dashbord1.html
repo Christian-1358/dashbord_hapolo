@@ -3,22 +3,789 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard 1</title>
+    <title>Electro — A plataforma completa para seu carro elétrico</title>
+    <link rel="stylesheet" href="../css/tailwind.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; margin: 40px; background: #ffffff; color: #1a1a1a; }
-        .card { background: #f0f4ff; padding: 20px; border-radius: 10px; border-left: 4px solid #0055ff; }
-        h1 { color: #0055ff; }
-        .btn-sair { display: inline-block; padding: 10px 20px; background: #0055ff; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; }
-        .btn-sair:hover { background: #003dcc; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1e3a8a;
+        }
+        /* Botão gradiente azul forte */
+        .btn-gradient {
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #3b82f6 100%);
+        }
+        /* Mockup de celular claro (snow gray) */
+        .phone-container {
+            position: relative;
+            width: 190px;
+            height: 385px;
+            background-color: #f1f5f9;
+            border-radius: 36px;
+            box-shadow: 0 30px 60px -20px rgba(29, 78, 216, 0.35);
+            border: 4px solid #e2e8f0;
+            padding: 6px;
+        }
+        .phone-container::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 60px;
+            width: 2px;
+            height: 30px;
+            background: #94a3b8;
+            border-radius: 2px 0 0 2px;
+            box-shadow: 0 40px 0 #94a3b8;
+        }
+        .phone-container::after {
+            content: '';
+            position: absolute;
+            right: -6px;
+            top: 80px;
+            width: 2px;
+            height: 45px;
+            background: #94a3b8;
+            border-radius: 0 2px 2px 0;
+        }
+        section + section {
+            border-top: 1px solid #e2e8f0;
+        }
+        /* Plano destacado com borda azul grossa */
+        .plan-highlight {
+            border: 2px solid #2563eb;
+            box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+        }
+        /* Card com gradiente sutil branco/snow */
+        .snow-card {
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        }
     </style>
 </head>
-<body>
-    <h1>📊 Dashboard 1</h1>
-    <div class="card">
-        <p>Dashboard 1</p>
-    </div>
-    <br>
-    <a href="/goto/electro" class="btn-sair">✕ Sair</a>
+<body class="text-blue-900 min-h-screen overflow-x-hidden selection:bg-blue-600 selection:text-white">
+
+    <!-- ============================================ -->
+    <!-- SEÇÃO 1 — HERO                               -->
+    <!-- ============================================ -->
+    <section class="min-h-screen flex items-center justify-center p-6 md:p-12 lg:p-24 bg-gradient-to-b from-white via-blue-50/30 to-white">
+        <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+            <div class="lg:col-span-6 space-y-6 z-10">
+                <!-- Badge superior -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-blue-800 text-[11px] font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                    NOVO · Versão 4.0 disponível
+                </div>
+
+                <h1 class="text-5xl sm:text-6xl lg:text-[64px] font-extrabold tracking-tight leading-[1.05] text-blue-900">
+                    Seu carro <span class="text-blue-700">elétrico</span>,<br/>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-blue-500">totalmente conectado.</span>
+                </h1>
+
+                <p class="text-slate-600 text-base sm:text-lg max-w-lg font-medium leading-relaxed">
+                    Monitore a saúde da bateria, acesse câmeras remotamente, planeje rotas e proteja seu veículo. Tudo em uma plataforma feita para a nova era da mobilidade.
+                </p>
+
+                <!-- Stats — exclusivo do dashbord1 -->
+                <div class="grid grid-cols-3 gap-4 max-w-md pt-2">
+                    <div>
+                        <div class="text-3xl lg:text-4xl font-extrabold text-blue-700">+50k</div>
+                        <div class="text-[11px] text-slate-500 uppercase tracking-wide font-semibold">usuários ativos</div>
+                    </div>
+                    <div class="border-l border-slate-200 pl-4">
+                        <div class="text-3xl lg:text-4xl font-extrabold text-blue-700">4.9<span class="text-lg text-blue-400">★</span></div>
+                        <div class="text-[11px] text-slate-500 uppercase tracking-wide font-semibold">nas lojas</div>
+                    </div>
+                    <div class="border-l border-slate-200 pl-4">
+                        <div class="text-3xl lg:text-4xl font-extrabold text-blue-700">+30</div>
+                        <div class="text-[11px] text-slate-500 uppercase tracking-wide font-semibold">cidades</div>
+                    </div>
+                </div>
+
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row gap-3 pt-4">
+                    <a href="#planos" class="btn-gradient inline-block text-center text-white font-extrabold tracking-wider text-sm px-10 py-4 rounded-xl transition-all duration-300 hover:opacity-90 active:scale-95 shadow-xl shadow-blue-500/30">
+                        VER PLANOS
+                    </a>
+                    <a href="#instale" class="inline-block text-center text-blue-700 bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-blue-50 font-extrabold tracking-wider text-sm px-10 py-4 rounded-xl transition-all duration-300">
+                        BAIXAR APP
+                    </a>
+                </div>
+
+                <!-- Selos de confiança -->
+                <div class="flex flex-wrap items-center gap-4 pt-2 text-xs text-slate-500">
+                    <div class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                        Sem cartão
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                        Cancela quando quiser
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                        Suporte 24h
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mockups à direita -->
+            <div class="lg:col-span-6 flex items-center justify-center relative w-full h-[450px] md:h-[600px] mt-12 lg:mt-0 select-none">
+
+                <!-- Mockup esquerdo (secundário) -->
+                <div class="absolute w-[180px] md:w-[230px] z-10 transform -translate-x-[40%] md:-translate-x-[45%] scale-90 bg-white rounded-[36px] border-[5px] border-slate-200 overflow-hidden shadow-2xl opacity-90">
+                    <div class="h-[380px] md:h-[480px] p-3 flex flex-col justify-between text-[10px] bg-gradient-to-br from-slate-50 to-white">
+                        <div class="w-full h-2/3 bg-gradient-to-br from-blue-100 to-blue-50 rounded-xl relative overflow-hidden border border-blue-100">
+                            <div class="absolute inset-0 opacity-30 bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                            <div class="absolute top-1/2 left-1/3 w-2 h-2 bg-blue-600 rounded-full"></div>
+                            <div class="absolute top-1/2 left-1/3 w-2 h-2 bg-blue-600 rounded-full animate-ping"></div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 pt-2">
+                            <div class="bg-slate-50 p-2 rounded-lg border border-slate-100"><span class="text-slate-500 block text-[9px]">BATERIA</span><span class="text-blue-700 font-bold text-xs">87.5%</span></div>
+                            <div class="bg-slate-50 p-2 rounded-lg border border-slate-100"><span class="text-slate-500 block text-[9px]">VELOCIDADE</span><span class="text-blue-900 font-bold text-xs">0 km/h</span></div>
+                            <div class="bg-slate-50 p-2 rounded-lg border border-slate-100"><span class="text-slate-500 block text-[9px]">AUTONOMIA</span><span class="text-blue-700 font-bold text-xs">312 km</span></div>
+                            <div class="bg-slate-50 p-2 rounded-lg border border-slate-100"><span class="text-slate-500 block text-[9px]">SAÚDE</span><span class="text-green-600 font-bold text-xs">98%</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mockup direito (secundário) -->
+                <div class="absolute w-[180px] md:w-[230px] z-10 transform translate-x-[40%] md:translate-x-[45%] bg-white rounded-[36px] border-[5px] border-slate-200 overflow-hidden shadow-2xl opacity-90">
+                    <div class="h-[380px] md:h-[480px] p-3 flex flex-col justify-between text-[10px] bg-gradient-to-br from-slate-50 to-white">
+                        <div class="flex items-center gap-1 text-blue-700 font-bold"><span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span> AO VIVO</div>
+                        <div class="w-full h-1/2 bg-slate-100 rounded-xl flex items-center justify-center my-auto border border-slate-200 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 opacity-50"></div>
+                            <span class="text-slate-500 text-[11px] z-10 font-bold">Câmera 01</span>
+                        </div>
+                        <div class="w-full bg-blue-50 p-3 rounded-xl flex flex-col items-center gap-2 border border-blue-100">
+                            <div class="w-8 h-12 border-2 border-blue-400 rounded-md flex items-center justify-center">
+                                <div class="w-4 h-6 bg-blue-200 rounded-sm"></div>
+                            </div>
+                            <span class="text-slate-600 text-[9px] font-semibold">Veículo Protegido</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mockup principal (frente) -->
+                <div class="absolute w-[210px] md:w-[265px] z-20 bg-white rounded-[42px] border-[7px] border-slate-200 overflow-hidden shadow-[0_30px_80px_-20px_rgba(29,78,216,0.4)]">
+                    <div class="h-[440px] md:h-[540px] p-4 flex flex-col justify-between text-blue-900 relative">
+                        <div class="flex justify-between items-center text-[9px] text-slate-400 font-medium px-2">
+                            <span class="font-bold text-slate-700">9:41</span>
+                            <div class="w-16 h-3 bg-slate-100 rounded-full absolute left-1/2 transform -translate-x-1/2 top-1.5"></div>
+                            <div class="flex items-center gap-1 text-blue-600 font-bold">⚡ 100%</div>
+                        </div>
+
+                        <!-- Cabeçalho -->
+                        <div class="flex justify-between items-center mt-2 bg-blue-50 p-2.5 rounded-xl border border-blue-100">
+                            <div class="flex items-center gap-1.5">
+                                <div class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></div>
+                                <span class="text-[11px] font-bold">BYD Seal</span>
+                            </div>
+                            <span class="text-[9px] text-blue-700 font-bold">Conectado</span>
+                        </div>
+
+                        <!-- Cards de stats -->
+                        <div class="bg-white p-3 rounded-xl space-y-2 border border-slate-200 text-[10px] mt-2 shadow-sm">
+                            <div class="flex justify-between border-b border-slate-100 pb-1.5 text-slate-500">
+                                <div>Energia <span class="block text-blue-900 font-bold text-xs">1.3 kWh</span></div>
+                                <div class="text-right">Média <span class="block text-blue-900 font-bold text-xs">12.4 kWh/100</span></div>
+                            </div>
+                            <div class="flex justify-between text-slate-500">
+                                <div>Duração <span class="block text-blue-900 font-bold text-xs">00:23</span></div>
+                                <div class="text-right">Saúde <span class="block text-blue-700 font-bold text-xs">98%</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Gráfico -->
+                        <div class="bg-white p-3 rounded-xl flex-1 my-2 flex flex-col justify-between border border-slate-200 shadow-sm">
+                            <span class="text-[9px] text-slate-500 font-semibold">Velocidade [km/h]</span>
+                            <div class="h-20 flex items-end gap-[2px] pt-2 px-1 border-b border-l border-slate-100">
+                                <div class="bg-blue-200 w-full h-[20%] rounded-t-sm"></div>
+                                <div class="bg-blue-300 w-full h-[45%] rounded-t-sm"></div>
+                                <div class="bg-blue-300 w-full h-[35%] rounded-t-sm"></div>
+                                <div class="bg-blue-500 w-full h-[75%] rounded-t-sm"></div>
+                                <div class="bg-blue-600 w-full h-[90%] rounded-t-sm"></div>
+                                <div class="bg-blue-500 w-full h-[60%] rounded-t-sm"></div>
+                                <div class="bg-blue-600 w-full h-[85%] rounded-t-sm"></div>
+                                <div class="bg-blue-200 w-full h-[30%] rounded-t-sm"></div>
+                                <div class="bg-blue-300 w-full h-[40%] rounded-t-sm"></div>
+                                <div class="bg-blue-700 w-full h-[95%] rounded-t-sm"></div>
+                            </div>
+                            <div class="flex justify-between text-[7px] text-slate-400 pt-1">
+                                <span>07:03</span><span>07:08</span><span>07:13</span><span>07:18</span><span>07:23</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-gradient text-white font-bold text-[10px] py-2.5 rounded-lg shadow-md shadow-blue-500/30">
+                            VER DETALHES
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SEÇÃO 2 — RECURSOS                           -->
+    <!-- ============================================ -->
+    <section class="flex items-center justify-center p-6 md:p-12 lg:p-24 bg-slate-50">
+        <div class="max-w-7xl w-full text-center space-y-16">
+
+            <div class="space-y-4 max-w-2xl mx-auto">
+                <span class="text-blue-700 font-bold tracking-widest text-xs uppercase block">
+                    RECURSOS DA PLATAFORMA
+                </span>
+                <h2 class="text-3xl md:text-4xl lg:text-[42px] font-extrabold tracking-tight text-blue-900">
+                    Tudo o que você precisa, <span class="text-blue-700">em um só lugar</span>
+                </h2>
+                <p class="text-slate-600 text-base md:text-lg font-normal leading-relaxed">
+                    Da segurança à economia, dos trajetos à saúde da bateria — uma plataforma completa para simplificar sua vida com o carro elétrico.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+
+                <div class="snow-card p-8 rounded-[28px] border border-slate-200 flex flex-col justify-between min-h-[280px] transition-all duration-300 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-md shadow-blue-500/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold tracking-tight text-blue-900">Segurança em Primeiro Lugar</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed font-normal">
+                            Comunicação criptografada ponto a ponto (AES-256). Nenhuma informação do seu veículo é armazenada em servidores externos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="snow-card p-8 rounded-[28px] border border-slate-200 flex flex-col justify-between min-h-[280px] transition-all duration-300 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-md shadow-blue-500/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold tracking-tight text-blue-900">Status em Tempo Real</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed font-normal">
+                            Bateria, temperatura, potência, torque — todas as métricas vitais do seu carro em uma única tela, atualizadas a cada segundo.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="snow-card p-8 rounded-[28px] border border-slate-200 flex flex-col justify-between min-h-[280px] transition-all duration-300 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-md shadow-blue-500/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold tracking-tight text-blue-900">Câmeras em HD</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed font-normal">
+                            Até 4 câmeras em tempo real, mesmo com o carro desligado. Visão noturna, gravação contínua e IA de detecção de pessoas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="snow-card p-8 rounded-[28px] border border-slate-200 flex flex-col justify-between min-h-[280px] transition-all duration-300 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-md shadow-blue-500/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold tracking-tight text-blue-900">Rotas Inteligentes</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed font-normal">
+                            Planejador automático que considera autonomia, carregadores no caminho e tráfego em tempo real para otimizar cada trajeto.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="snow-card p-8 rounded-[28px] border border-slate-200 flex flex-col justify-between min-h-[280px] transition-all duration-300 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-md shadow-blue-500/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold tracking-tight text-blue-900">Economia Real</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed font-normal">
+                            Compare gastos mês a mês, projete economia anual e descubra quanto você está economizando comparado a um carro a combustão.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="snow-card p-8 rounded-[28px] border border-slate-200 flex flex-col justify-between min-h-[280px] transition-all duration-300 hover:border-blue-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-md shadow-blue-500/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.177a24.111 24.111 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/></svg>
+                        </div>
+                        <h3 class="text-lg font-bold tracking-tight text-blue-900">Alertas Inteligentes</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed font-normal">
+                            Notificações em tempo real sobre movimento, impacto, abertura de portas e muito mais. Configure apenas o que importa.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SEÇÃO 3 — TELAS DO APP                       -->
+    <!-- ============================================ -->
+    <section class="flex items-center justify-center p-6 md:p-12 lg:p-24 bg-white">
+        <div class="max-w-7xl w-full text-center space-y-12">
+
+            <div class="space-y-3 max-w-2xl mx-auto">
+                <span class="text-blue-700 font-bold tracking-widest text-[11px] uppercase block">
+                    INTERFACE INTUITIVA
+                </span>
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-900">
+                    Bonito por fora. <span class="text-blue-700">Poderoso por dentro.</span>
+                </h2>
+                <p class="text-slate-600 text-base font-normal leading-relaxed max-w-lg mx-auto">
+                    Conheça as telas que tornam a experiência Electro única — limpas, rápidas e fáceis de usar.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 max-w-5xl mx-auto justify-items-center">
+
+                <div class="flex flex-col items-center space-y-4">
+                    <div class="phone-container">
+                        <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-14 h-3.5 bg-slate-300 rounded-full z-30"></div>
+                        <div class="w-full h-full bg-white rounded-[30px] overflow-hidden p-3 pt-6 flex flex-col justify-between text-[8px] relative">
+                            <div class="h-2/3 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl border border-blue-100 relative">
+                                <div class="absolute inset-0 opacity-40 bg-[radial-gradient(#2563eb_1px,transparent_1px)] [background-size:10px_10px]"></div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-1.5 text-left z-10">
+                                <div class="bg-slate-50 p-1.5 rounded border border-slate-100"><span class="text-slate-500 block text-[6px]">BATERIA</span><span class="text-blue-700 font-bold">87.5%</span></div>
+                                <div class="bg-slate-50 p-1.5 rounded border border-slate-100"><span class="text-slate-500 block text-[6px]">AUTONOMIA</span><span class="text-blue-900 font-bold">312 km</span></div>
+                                <div class="bg-slate-50 p-1.5 rounded border border-slate-100"><span class="text-slate-500 block text-[6px]">POTÊNCIA</span><span class="text-blue-900 font-bold">0 hp</span></div>
+                                <div class="bg-slate-50 p-1.5 rounded border border-slate-100"><span class="text-slate-500 block text-[6px]">SAÚDE</span><span class="text-green-600 font-bold">98%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center max-w-[190px]">
+                        <h3 class="text-[11px] font-bold text-blue-900">Painel principal</h3>
+                        <p class="text-[9px] text-slate-500 mt-1 leading-tight">Tudo que importa em uma única tela, com atualizações em tempo real.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center space-y-4">
+                    <div class="phone-container">
+                        <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-14 h-3.5 bg-slate-300 rounded-full z-30"></div>
+                        <div class="w-full h-full bg-white rounded-[30px] overflow-hidden p-3 pt-6 flex flex-col justify-between text-[8px]">
+                            <div class="bg-slate-50 p-2 rounded-lg border border-slate-100 flex justify-between text-slate-700 text-[7px]">
+                                <div>Energia<span class="block text-blue-900 font-bold">1.3 kWh</span></div>
+                                <div class="text-right">Média<span class="block text-blue-900 font-bold">12.4</span></div>
+                            </div>
+                            <div class="bg-slate-50 p-2 rounded-lg border border-slate-100 flex-1 my-2 flex flex-col justify-between">
+                                <span class="text-[7px] text-slate-500">Velocidade [km/h]</span>
+                                <div class="h-16 flex items-end gap-[1px] border-b border-l border-slate-100 px-1">
+                                    <div class="bg-blue-400 h-[30%] w-full rounded-t-[1px]"></div>
+                                    <div class="bg-blue-500 h-[60%] w-full rounded-t-[1px]"></div>
+                                    <div class="bg-blue-500 h-[45%] w-full rounded-t-[1px]"></div>
+                                    <div class="bg-blue-700 h-[80%] w-full rounded-t-[1px]"></div>
+                                </div>
+                            </div>
+                            <div class="bg-blue-50 p-1.5 rounded border border-blue-100 text-[7px] text-blue-700 font-bold">Altitude [m]</div>
+                        </div>
+                    </div>
+                    <div class="text-center max-w-[190px]">
+                        <h3 class="text-[11px] font-bold text-blue-900">Histórico de viagens</h3>
+                        <p class="text-[9px] text-slate-500 mt-1 leading-tight">Métricas detalhadas de cada trajeto com gráficos de desempenho.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center space-y-4">
+                    <div class="phone-container">
+                        <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-14 h-3.5 bg-slate-300 rounded-full z-30"></div>
+                        <div class="w-full h-full bg-white rounded-[30px] overflow-hidden p-3 pt-6 flex flex-col justify-between text-[8px]">
+                            <span class="text-blue-700 font-bold text-left">Câmera ao vivo</span>
+                            <div class="w-full h-1/2 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-center text-slate-500 text-[9px] my-2">
+                                [ Câmera 01 ]
+                            </div>
+                            <div class="bg-blue-600 p-2 rounded-xl flex flex-col items-center gap-1 text-white">
+                                <div class="w-5 h-8 border-2 border-white/40 rounded bg-white/10"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center max-w-[190px]">
+                        <h3 class="text-[11px] font-bold text-blue-900">Câmeras remotas</h3>
+                        <p class="text-[9px] text-slate-500 mt-1 leading-tight">Acompanhe ao vivo, grave ou tire fotos remotamente em segundos.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center space-y-4">
+                    <div class="phone-container">
+                        <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-14 h-3.5 bg-slate-300 rounded-full z-30"></div>
+                        <div class="w-full h-full bg-white rounded-[30px] overflow-hidden p-3 pt-6 flex flex-col justify-start space-y-3 text-[8px] text-left">
+                            <span class="text-slate-700 font-semibold block border-b border-slate-200 pb-1">Assentos</span>
+                            <span class="text-slate-500 block text-[7px]">Posição do motorista</span>
+                            <div class="bg-blue-50 text-blue-700 p-2 rounded-md font-bold text-center border border-blue-200">Memória 1</div>
+                            <div class="bg-blue-50 text-blue-700 p-2 rounded-md font-bold text-center border border-blue-200">Memória 2</div>
+                        </div>
+                    </div>
+                    <div class="text-center max-w-[190px]">
+                        <h3 class="text-[11px] font-bold text-blue-900">Conforto personalizado</h3>
+                        <p class="text-[9px] text-slate-500 mt-1 leading-tight">Ajuste remoto de assentos antes mesmo de entrar no carro.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center space-y-4 lg:mt-4">
+                    <div class="phone-container">
+                        <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-14 h-3.5 bg-slate-300 rounded-full z-30"></div>
+                        <div class="w-full h-full bg-white rounded-[30px] overflow-hidden p-3 pt-6 flex flex-col justify-between text-[8px] text-left">
+                            <span class="text-slate-700 font-semibold">Potência</span>
+                            <div class="h-20 bg-slate-50 rounded-lg border border-slate-100 p-2 relative flex items-end my-1">
+                                <div class="w-full h-[50%] border-t border-blue-400 bg-gradient-to-t from-blue-100 to-transparent"></div>
+                            </div>
+                            <span class="text-slate-700 font-semibold">Torque</span>
+                            <div class="h-20 bg-slate-50 rounded-lg border border-slate-100 p-2 relative flex items-end">
+                                <div class="w-full h-[40%] border-t border-blue-500 bg-gradient-to-t from-blue-100 to-transparent"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center max-w-[190px]">
+                        <h3 class="text-[11px] font-bold text-blue-900">Potência e torque</h3>
+                        <p class="text-[9px] text-slate-500 mt-1 leading-tight">Métricas detalhadas para acompanhar o desempenho em tempo real.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center space-y-4 lg:mt-4">
+                    <div class="phone-container">
+                        <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-14 h-3.5 bg-slate-300 rounded-full z-30"></div>
+                        <div class="w-full h-full bg-white rounded-[30px] overflow-hidden p-3 pt-6 flex flex-col justify-start space-y-3 text-[8px] text-left">
+                            <span class="text-slate-700 font-semibold block border-b border-slate-200 pb-1">Climatização</span>
+                            <span class="text-slate-700 block font-medium leading-tight">Ligar ventilação/aquecimento automático</span>
+                            <div class="w-full h-24 bg-blue-50 rounded-xl border border-blue-100 flex items-center justify-center">
+                                <div class="w-8 h-12 border-2 border-blue-300 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center max-w-[190px]">
+                        <h3 class="text-[11px] font-bold text-blue-900">Temperatura ideal</h3>
+                        <p class="text-[9px] text-slate-500 mt-1 leading-tight">Climatização automática dos assentos para máximo conforto.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center space-y-4 lg:mt-4">
+                    <div class="phone-container">
+                        <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-14 h-3.5 bg-slate-300 rounded-full z-30"></div>
+                        <div class="w-full h-full bg-white rounded-[30px] overflow-hidden p-3 pt-6 flex flex-col justify-start space-y-2 text-[7px] text-left">
+                            <span class="text-slate-700 font-semibold border-b border-slate-200 pb-1 text-[8px]">Eventos</span>
+                            <div class="bg-green-50 p-1.5 rounded border border-green-200"><span class="text-green-700 block font-medium">Porta fechada</span><span class="text-slate-500 text-[6px]">MOTORISTA · 14:23</span></div>
+                            <div class="bg-green-50 p-1.5 rounded border border-green-200"><span class="text-green-700 block font-medium">Carga concluída</span><span class="text-slate-500 text-[6px]">100% · 12:00</span></div>
+                            <div class="bg-amber-50 p-1.5 rounded border border-amber-200"><span class="text-amber-700 block font-medium">Estacionou</span><span class="text-slate-500 text-[6px]">SHOPPING · 11:45</span></div>
+                        </div>
+                    </div>
+                    <div class="text-center max-w-[190px]">
+                        <h3 class="text-[11px] font-bold text-blue-900">Logs do veículo</h3>
+                        <p class="text-[9px] text-slate-500 mt-1 leading-tight">Histórico completo de eventos com data, hora e local.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col items-center space-y-4 lg:mt-4">
+                    <div class="phone-container">
+                        <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-14 h-3.5 bg-slate-300 rounded-full z-30"></div>
+                        <div class="w-full h-full bg-white rounded-[30px] overflow-hidden p-3 pt-6 flex flex-col justify-start space-y-2 text-[7px] text-left">
+                            <span class="text-slate-700 font-semibold border-b border-slate-200 pb-1 text-[8px]">Notificações</span>
+                            <div class="flex items-center gap-1.5 bg-blue-50 p-1.5 rounded border border-blue-100"><span class="w-1 h-1 rounded-full bg-blue-600"></span> Abertura/fechamento</div>
+                            <div class="flex items-center gap-1.5 bg-blue-50 p-1.5 rounded border border-blue-100"><span class="w-1 h-1 rounded-full bg-blue-600"></span> Início/fim trajeto</div>
+                            <div class="flex items-center gap-1.5 bg-blue-50 p-1.5 rounded border border-blue-100"><span class="w-1 h-1 rounded-full bg-blue-600"></span> Multas e alertas</div>
+                        </div>
+                    </div>
+                    <div class="text-center max-w-[190px]">
+                        <h3 class="text-[11px] font-bold text-blue-900">Notificações inteligentes</h3>
+                        <p class="text-[9px] text-slate-500 mt-1 leading-tight">Personalize quais eventos você quer receber — você está no controle.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SEÇÃO 4 — PLANOS (EXCLUSIVA DO DASHBORD1)    -->
+    <!-- ============================================ -->
+    <section id="planos" class="flex items-center justify-center p-6 md:p-12 lg:p-24 bg-gradient-to-b from-slate-50 to-white">
+        <div class="max-w-7xl w-full space-y-16">
+
+            <div class="text-center space-y-4 max-w-3xl mx-auto">
+                <span class="text-blue-700 font-bold tracking-widest text-xs uppercase block">
+                    PLANOS & PREÇOS
+                </span>
+                <h2 class="text-3xl md:text-4xl lg:text-[42px] font-extrabold tracking-tight text-blue-900">
+                    Escolha o plano <span class="text-blue-700">ideal para você</span>
+                </h2>
+                <p class="text-slate-600 text-base md:text-lg font-normal leading-relaxed">
+                    Comece grátis e evolua conforme suas necessidades. Sem fidelidade, cancele a qualquer momento.
+                </p>
+
+                <!-- Toggle mensal/anual (decorativo) -->
+                <div class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full p-1 shadow-sm">
+                    <button class="px-4 py-1.5 rounded-full bg-blue-600 text-white text-xs font-bold">Mensal</button>
+                    <button class="px-4 py-1.5 rounded-full text-slate-600 text-xs font-bold">Anual <span class="text-green-600">−20%</span></button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch">
+
+                <!-- Plano Starter -->
+                <div class="snow-card rounded-[32px] border border-slate-200 p-8 flex flex-col shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div class="space-y-2">
+                        <div class="text-xs uppercase tracking-widest font-bold text-slate-500">Starter</div>
+                        <div class="text-slate-600 text-sm">Para quem está começando</div>
+                    </div>
+
+                    <div class="mt-6 mb-6">
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-5xl font-extrabold text-blue-900">Grátis</span>
+                        </div>
+                        <div class="text-xs text-slate-500 mt-1">para sempre, sem cartão</div>
+                    </div>
+
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8 flex-1">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            Monitoramento básico do veículo
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            1 câmera com gravação de 7 dias
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            Alertas por e-mail
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            Histórico de 30 dias
+                        </li>
+                        <li class="flex items-start gap-2 opacity-50">
+                            <svg class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"/></svg>
+                            Geofencing avançado
+                        </li>
+                    </ul>
+
+                    <button class="w-full py-3.5 rounded-xl border-2 border-blue-200 text-blue-700 hover:bg-blue-50 hover:border-blue-400 font-bold text-sm transition-all duration-200">
+                        Começar grátis
+                    </button>
+                </div>
+
+                <!-- Plano Pro (DESTAQUE) -->
+                <div class="relative bg-gradient-to-br from-blue-600 to-blue-700 rounded-[32px] p-8 flex flex-col text-white shadow-2xl shadow-blue-500/40 transform md:scale-105">
+                    <!-- Badge "Mais popular" -->
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-400 to-amber-500 text-blue-900 text-[10px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+                        ⭐ Mais popular
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="text-xs uppercase tracking-widest font-bold text-blue-200">Pro</div>
+                        <div class="text-blue-100 text-sm">Para quem usa o carro todo dia</div>
+                    </div>
+
+                    <div class="mt-6 mb-6">
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-2xl font-bold text-blue-200">R$</span>
+                            <span class="text-6xl font-extrabold">29</span>
+                            <span class="text-blue-200 text-sm">/mês</span>
+                        </div>
+                        <div class="text-xs text-blue-200 mt-1">cobrança mensal · cancele quando quiser</div>
+                    </div>
+
+                    <ul class="space-y-3 text-sm mb-8 flex-1">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-300 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            <strong>Tudo do Starter</strong>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-300 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            <strong>4 câmeras HD</strong> com visão noturna
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-300 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            Alertas em tempo real (push)
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-300 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            <strong>30 dias</strong> de gravação em nuvem
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-300 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            Geofencing + bloqueio remoto
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-amber-300 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            Compartilhamento familiar
+                        </li>
+                    </ul>
+
+                    <button class="w-full py-3.5 rounded-xl bg-white text-blue-700 hover:bg-amber-300 hover:text-blue-900 font-extrabold text-sm transition-all duration-200 shadow-lg">
+                        Assinar Pro agora 
+                    </button>
+                </div>
+
+                <!-- Plano Business -->
+                <div class="snow-card rounded-[32px] border border-slate-200 p-8 flex flex-col shadow-sm hover:shadow-lg transition-all duration-300">
+                    <div class="space-y-2">
+                        <div class="text-xs uppercase tracking-widest font-bold text-slate-500">Business</div>
+                        <div class="text-slate-600 text-sm">Para frotistas e empresas</div>
+                    </div>
+
+                    <div class="mt-6 mb-6">
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-2xl font-bold text-slate-700">R$</span>
+                            <span class="text-5xl font-extrabold text-blue-900">99</span>
+                            <span class="text-slate-500 text-sm">/mês</span>
+                        </div>
+                        <div class="text-xs text-slate-500 mt-1">por veículo · mínimo 3 unidades</div>
+                    </div>
+
+                    <ul class="space-y-3 text-sm text-slate-600 mb-8 flex-1">
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            <strong>Tudo do Pro</strong>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            Até <strong>10 veículos</strong> por painel
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            Suporte <strong>24/7 prioritário</strong>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            API de integração
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            Painel administrativo web
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            Relatórios avançados + NF
+                        </li>
+                    </ul>
+
+                    <button class="w-full py-3.5 rounded-xl border-2 border-blue-200 text-blue-700 hover:bg-blue-50 hover:border-blue-400 font-bold text-sm transition-all duration-200">
+                        Falar com vendas
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Garantia -->
+            <div class="text-center text-sm text-slate-500 max-w-xl mx-auto">
+                ✓ Garantia de 14 dias para reembolso integral · ✓ Sem fidelidade · ✓ Suporte em português
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SEÇÃO 5 — INSTALAÇÃO + RODAPÉ                -->
+    <!-- ============================================ -->
+    <section id="instale" class="flex flex-col items-center justify-between p-6 md:p-12 lg:p-24 bg-white">
+        <div class="max-w-4xl w-full text-center space-y-12">
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 bg-gradient-to-br from-blue-50 to-white p-6 rounded-3xl border border-blue-100 max-w-2xl mx-auto shadow-sm">
+                <div class="phone-container shrink-0 transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <div class="absolute top-2 left-1/2 transform -translate-x-1/2 w-14 h-3.5 bg-slate-300 rounded-full z-30"></div>
+                    <div class="w-full h-full bg-white rounded-[30px] overflow-hidden p-2 pt-6 flex items-center justify-center">
+                        <img src="../assets/car-to-app-connection.svg" alt="Conexão carro-app" class="w-full h-full object-contain rounded-[22px]">
+                    </div>
+                </div>
+
+                <div class="w-full max-w-[320px] aspect-video bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl shadow-xl p-4 relative overflow-hidden flex flex-col justify-between transform rotate-2 hover:rotate-0 transition-transform duration-300 text-white">
+                    <div class="flex justify-between items-center z-10">
+                        <span class="text-[10px] font-bold flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                            ELECTRO
+                        </span>
+                        <span class="text-[8px] text-blue-200">Plano Pro ativo</span>
+                    </div>
+                    <div class="w-3/4 h-2 bg-white/20 rounded-full mx-auto my-auto overflow-hidden">
+                        <div class="w-4/5 h-full bg-white rounded-full"></div>
+                    </div>
+                    <span class="text-[7px] text-blue-100 block text-right z-10">Sistema Electro · v4.0</span>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-blue-900">
+                    Comece <span class="text-blue-700">hoje</span>
+                </h2>
+                <p class="text-slate-600 text-base max-w-md mx-auto leading-relaxed">
+                    Três passos simples e seu carro está conectado, protegido e monitorado 24 horas por dia.
+                </p>
+            </div>
+
+            <div class="max-w-xl mx-auto text-left relative pl-8 border-l-2 border-blue-200 space-y-10">
+
+                <div class="relative">
+                    <div class="absolute -left-[43px] top-0.5 w-7 h-7 rounded-full bg-blue-600 border-4 border-white shadow-md flex items-center justify-center text-white font-bold text-xs">1</div>
+                    <div class="space-y-2">
+                        <h3 class="text-base font-bold tracking-tight text-blue-900">Baixe o app gratuitamente</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Disponível para iOS e Android. O plano Starter é gratuito para sempre — você só evolui se quiser mais recursos.</p>
+                        <div class="flex gap-2 pt-1">
+                            <button class="bg-blue-900 hover:bg-blue-800 text-white text-xs px-4 py-2 rounded-lg font-semibold">App Store</button>
+                            <button class="bg-blue-900 hover:bg-blue-800 text-white text-xs px-4 py-2 rounded-lg font-semibold">Google Play</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[43px] top-0.5 w-7 h-7 rounded-full bg-blue-600 border-4 border-white shadow-md flex items-center justify-center text-white font-bold text-xs">2</div>
+                    <div class="space-y-2">
+                        <h3 class="text-base font-bold tracking-tight text-blue-900">Sincronize seu veículo</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Conexão rápida via Bluetooth ou cabo. O app reconhece seu carro automaticamente em menos de 1 minuto.</p>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -left-[43px] top-0.5 w-7 h-7 rounded-full bg-blue-600 border-4 border-white shadow-md flex items-center justify-center text-white font-bold text-xs">3</div>
+                    <div class="space-y-2">
+                        <h3 class="text-base font-bold tracking-tight text-blue-900">Aproveite todos os recursos</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">Monitore bateria, câmeras, rotas e segurança. Tudo em um único app feito para o seu BYD.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="border-slate-200 max-w-2xl mx-auto pt-4">
+
+            <footer class="space-y-4 pt-4">
+                <div class="flex items-center justify-center gap-2 text-blue-900 font-bold tracking-wider text-[11px] uppercase">
+                    <div class="w-4 h-4 rounded-md bg-blue-600 flex items-center justify-center">
+                        <div class="grid grid-cols-2 gap-[1px] w-full h-full p-[2px]">
+                            <div class="bg-white rounded-[1px]"></div>
+                            <div class="bg-white rounded-[1px]"></div>
+                            <div class="bg-white rounded-[1px]"></div>
+                            <div class="bg-white rounded-[1px]"></div>
+                        </div>
+                    </div>
+                    ELECTRO · BY HAPOLO ENERGIA
+                </div>
+
+                <div class="flex justify-center gap-3">
+                    <a href="https://www.instagram.com/hapoloenergia/" target="_blank" rel="noopener noreferrer" class="border border-slate-200 hover:bg-pink-50 hover:border-pink-200 text-pink-600 px-5 py-2 rounded-full text-xs font-semibold transition-colors duration-200 flex items-center gap-1.5 bg-white shadow-sm">
+                        📸 Instagram
+                    </a>
+                    <a href="https://t.me/hapoloenergia" target="_blank" rel="noopener noreferrer" class="border border-slate-200 hover:bg-blue-50 hover:border-blue-200 text-blue-700 px-5 py-2 rounded-full text-xs font-semibold transition-colors duration-200 flex items-center gap-1.5 bg-white shadow-sm">
+                        ✈️ Telegram
+                    </a>
+                </div>
+
+                <div class="flex items-center justify-center gap-4 text-[10px] text-slate-400 pt-2">
+                    <a href="#" class="hover:text-slate-700">Privacidade</a>
+                    <span>·</span>
+                    <a href="#" class="hover:text-slate-700">Termos</a>
+                    <span>·</span>
+                    <a href="#" class="hover:text-slate-700">Contato</a>
+                </div>
+
+                <p class="text-[10px] text-slate-400 tracking-wide font-normal pt-2">
+                    © 2026 Hapolo Energia. Todos os direitos reservados.
+                </p>
+            </footer>
+
+        </div>
+    </section>
+
 </body>
 </html>
