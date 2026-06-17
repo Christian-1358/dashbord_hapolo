@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electro — A plataforma completa para seu carro elétrico</title>
+    <title>Hapolo Energia — A plataforma completa para seu carro elétrico</title>
     <link rel="stylesheet" href="../css/tailwind.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -60,6 +60,36 @@
         .snow-card {
             background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
         }
+        /* === Animações do Plano Pro (DESTAQUE) === */
+        @keyframes pro-glow {
+            0%, 100% { box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.5), 0 0 0 0 rgba(37, 99, 235, 0.5); }
+            50%      { box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.5), 0 0 0 16px rgba(37, 99, 235, 0); }
+        }
+        @keyframes pro-shine {
+            0%   { transform: translateX(-120%) skewX(-15deg); }
+            60%  { transform: translateX(180%)  skewX(-15deg); }
+            100% { transform: translateX(180%)  skewX(-15deg); }
+        }
+        @keyframes pro-badge {
+            0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+            50%      { transform: translateX(-50%) translateY(-3px) scale(1.06); }
+        }
+        @keyframes pro-price {
+            0%, 100% { text-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+            50%      { text-shadow: 0 0 18px rgba(255, 255, 255, 0.7); }
+        }
+        .pro-card  { animation: pro-glow 2.6s ease-in-out infinite; }
+        .pro-card  { overflow: hidden; }
+        .pro-shine { position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: inherit; }
+        .pro-shine::after {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 45%; height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+            animation: pro-shine 3.5s ease-in-out infinite;
+        }
+        .pro-badge { animation: pro-badge 1.8s ease-in-out infinite; }
+        .pro-price { animation: pro-price 2.2s ease-in-out infinite; }
     </style>
 </head>
 <body data-dashboard="1" class="text-blue-900 min-h-screen overflow-x-hidden selection:bg-blue-600 selection:text-white">
@@ -336,7 +366,7 @@
                     Bonito por fora. <span class="text-blue-700">Poderoso por dentro.</span>
                 </h2>
                 <p class="text-slate-600 text-base font-normal leading-relaxed max-w-lg mx-auto">
-                    Conheça as telas que tornam a experiência Electro única — limpas, rápidas e fáceis de usar.
+                    Conheça as telas que tornam a experiência Hapolo única — limpas, rápidas e fáceis de usar.
                 </p>
             </div>
 
@@ -567,21 +597,24 @@
                 </div>
 
                 <!-- Plano Pro (DESTAQUE) -->
-                <div class="relative bg-gradient-to-br from-blue-600 to-blue-700 rounded-[32px] p-8 flex flex-col text-white shadow-2xl shadow-blue-500/40 transform md:scale-105">
+                <div class="pro-card relative bg-gradient-to-br from-blue-600 to-blue-700 rounded-[32px] p-8 flex flex-col text-white shadow-2xl shadow-blue-500/40 transform md:scale-105">
+                    <!-- Shine sweep (faixa de luz passando) -->
+                    <div class="pro-shine"></div>
+
                     <!-- Badge "Mais popular" -->
-                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-amber-400 to-amber-500 text-blue-900 text-[10px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+                    <div class="pro-badge absolute -top-3 left-1/2 bg-gradient-to-r from-amber-400 to-amber-500 text-blue-900 text-[10px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
                         ⭐ Mais popular
                     </div>
 
-                    <div class="space-y-2">
+                    <div class="space-y-2 relative z-10">
                         <div class="text-xs uppercase tracking-widest font-bold text-blue-200">Pro</div>
                         <div class="text-blue-100 text-sm">Para quem usa o carro todo dia</div>
                     </div>
 
-                    <div class="mt-6 mb-6">
+                    <div class="mt-6 mb-6 relative z-10">
                         <div class="flex items-baseline gap-1">
                             <span class="text-2xl font-bold text-blue-200">R$</span>
-                            <span class="text-6xl font-extrabold">29</span>
+                            <span class="pro-price text-6xl font-extrabold">29</span>
                             <span class="text-blue-200 text-sm">/mês</span>
                         </div>
                         <div class="text-xs text-blue-200 mt-1">cobrança mensal · cancele quando quiser</div>
@@ -695,14 +728,14 @@
                     <div class="flex justify-between items-center z-10">
                         <span class="text-[10px] font-bold flex items-center gap-1.5">
                             <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
-                            ELECTRO
+                            HAPOLO
                         </span>
                         <span class="text-[8px] text-blue-200">Plano Pro ativo</span>
                     </div>
                     <div class="w-3/4 h-2 bg-white/20 rounded-full mx-auto my-auto overflow-hidden">
                         <div class="w-4/5 h-full bg-white rounded-full"></div>
                     </div>
-                    <span class="text-[7px] text-blue-100 block text-right z-10">Sistema Electro · v4.0</span>
+                    <span class="text-[7px] text-blue-100 block text-right z-10">Sistema Hapolo · v4.0</span>
                 </div>
             </div>
 
@@ -759,7 +792,7 @@
                             <div class="bg-white rounded-[1px]"></div>
                         </div>
                     </div>
-                    ELECTRO · BY HAPOLO ENERGIA
+                    HAPOLO ENERGIA
                 </div>
 
                 <div class="flex justify-center gap-3">

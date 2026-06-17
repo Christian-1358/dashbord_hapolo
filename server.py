@@ -18,8 +18,7 @@ PAGES = {
     "2": "dashbord2.html",
     "3": "dashbord3.html",
     "4": "dashbord4.html",
-    "electro": "electro.html",
-    "e": "electro.html",
+    "5": "dashbord5.html",
 }
 
 current_page = PAGES["1"]
@@ -81,7 +80,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 
 
 def print_banner():
-    print("⚡ ELECTRO SERVER")
+    print("⚡ HAPOLO SERVER")
     print("─" * 20)
 
 def main():
@@ -96,7 +95,7 @@ def main():
             current_page = PAGES[arg]
         elif arg in ["list", "ls"]:
             print_banner()
-            print("📄 Páginas disponíveis:\n")
+            print("Páginas disponíveis:\n")
             for k, v in PAGES.items():
                 print(f"   → /goto/{k:<10} {v}")
             print()
@@ -105,7 +104,7 @@ def main():
             return
 
     print_banner()
-    print(f"🌐 http://localhost:{PORT} | {current_page}")
+    print(f" http://localhost:{PORT} | {current_page}")
     print()
 
     socketserver.TCPServer.allow_reuse_address = True
