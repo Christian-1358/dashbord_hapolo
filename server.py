@@ -30,6 +30,14 @@ class ReuseAddrTCPServer(socketserver.TCPServer):
 
 
 class CustomHandler(http.server.SimpleHTTPRequestHandler):
+    def end_headers(self):
+        # Desabilita cache em todas as respostas — evita o problema de o
+        # navegador servir a página antiga após um /goto/N
+        self.send_header("Cache-Control", "no-store, no-cache, must-revalidate, max-age=0")
+        self.send_header("Pragma", "no-cache")
+        self.send_header("Expires", "0")
+        super().end_headers()
+
     def do_GET(self):
         global current_page
 
@@ -75,7 +83,6 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
 def print_banner():
     print("⚡ ELECTRO SERVER")
     print("─" * 20)
-
 
 def main():
     global current_page
