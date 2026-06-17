@@ -47,12 +47,20 @@
             border-radius: 0 2px 2px 0;
         }
         section + section {
-            border-top: 1px solid #f1f5f9;
+            border-top: 1px solid #e2e8f0;
         }
         /* Card com efeito de "vidro" azul */
         .glass-card {
             background: linear-gradient(135deg, rgba(209, 250, 229, 0.6) 0%, rgba(255, 255, 255, 0.9) 100%);
             backdrop-filter: blur(10px);
+        }
+        /* Respeita usuários com preferência de redução de movimento */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 </head>
@@ -94,7 +102,7 @@
                 </div>
 
                 <div class="pt-4">
-                    <a href="#instale" class="btn-gradient inline-block w-full sm:w-auto text-center text-white font-extrabold tracking-wider text-sm px-16 py-4 rounded-xl transition-all duration-300 hover:opacity-90 active:scale-95 shadow-xl shadow-emerald-500/30">
+                    <a href="#instale" class="btn-gradient inline-block w-full sm:w-auto text-center text-white font-extrabold tracking-wider text-sm px-16 py-4 rounded-xl transition-all duration-300 hover:opacity-90 active:scale-95 shadow-xl shadow-emerald-500/30" aria-label="Começar a monitorar a energia do seu carro">
                         MONITORAR AGORA
                     </a>
                 </div>
@@ -143,7 +151,7 @@
                         </div>
 
                         <!-- Botão -->
-                        <button class="btn-gradient text-white font-bold text-[10px] py-2 rounded-lg shadow-md">
+                        <button type="button" class="btn-gradient text-white font-bold text-[10px] py-2 rounded-lg shadow-md" aria-label="Ver histórico de cargas">
                             VER HISTÓRICO
                         </button>
                     </div>
@@ -547,16 +555,26 @@
                 </div>
 
                 <div class="flex justify-center gap-3">
-                    <a href="https://www.instagram.com/hapoloenergia/" target="_blank" rel="noopener noreferrer" class="border border-gray-200 hover:bg-pink-50 text-pink-600 px-4 py-1.5 rounded-full text-[10px] font-medium transition-colors duration-200 flex items-center gap-1.5 bg-white">
-                        📸 Instagram
+                    <a href="https://www.instagram.com/hapoloenergia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Hapolo Energia (abre em nova aba)" class="border border-gray-200 hover:bg-pink-50 text-pink-600 px-4 py-1.5 rounded-full text-[10px] font-medium transition-colors duration-200 flex items-center gap-2 bg-white">
+                        <img src="../assets/instagram.svg" alt="" aria-hidden="true" class="w-4 h-4">
+                        Instagram
                     </a>
-                    <a href="https://t.me/hapoloenergia" target="_blank" rel="noopener noreferrer" class="border border-gray-200 hover:bg-emerald-50 text-emerald-600 px-4 py-1.5 rounded-full text-[10px] font-medium transition-colors duration-200 flex items-center gap-1.5 bg-white">
-                        ✈️ Telegram
+                    <a href="https://t.me/hapoloenergia" target="_blank" rel="noopener noreferrer" aria-label="Telegram da Hapolo Energia (abre em nova aba)" class="border border-gray-200 hover:bg-emerald-50 text-emerald-600 px-4 py-1.5 rounded-full text-[10px] font-medium transition-colors duration-200 flex items-center gap-2 bg-white">
+                        <img src="../assets/telegram.svg" alt="" aria-hidden="true" class="w-4 h-4">
+                        Telegram
                     </a>
                 </div>
 
-                <p class="text-[9px] text-gray-400 tracking-wide font-normal">
-                    Hapolo Energia © 2026
+                <div class="flex items-center justify-center gap-4 text-[9px] text-gray-400 pt-2">
+                    <a href="#" class="hover:text-emerald-700">Privacidade</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="#" class="hover:text-emerald-700">Termos</a>
+                    <span aria-hidden="true">·</span>
+                    <a href="#" class="hover:text-emerald-700">Contato</a>
+                </div>
+
+                <p class="text-[9px] text-gray-400 tracking-wide font-normal pt-2">
+                    © 2026 Hapolo Energia. Todos os direitos reservados.
                 </p>
             </footer>
 
@@ -566,22 +584,22 @@
     <!-- ============================================ -->
     <!-- DOCK DE NAVEGAÇÃO ENTRE DASHBOARDS            -->
     <!-- ============================================ -->
-    <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
+    <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50" aria-label="Navegação entre dashboards">
         <div class="flex items-center gap-1 bg-slate-900/90 backdrop-blur-md border border-slate-700/50 rounded-full p-1.5 shadow-2xl">
-            <a href="/goto/1" data-nav="1" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Plataforma completa">
-                <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            <a href="/goto/1" data-nav="1" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" aria-label="Dashboard 1 — Plataforma completa">
+                <span class="w-2 h-2 rounded-full bg-blue-500" aria-hidden="true"></span>
                 <span class="text-xs font-bold text-slate-300 group-hover:text-white">1</span>
             </a>
-            <a href="/goto/2" data-nav="2" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Mobilidade e rotas">
-                <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+            <a href="/goto/2" data-nav="2" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" aria-label="Dashboard 2 — Mobilidade e rotas">
+                <span class="w-2 h-2 rounded-full bg-cyan-500" aria-hidden="true"></span>
                 <span class="text-xs font-bold text-slate-300 group-hover:text-white">2</span>
             </a>
-            <a href="/goto/3" data-nav="3" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Energia e economia">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <a href="/goto/3" data-nav="3" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" aria-label="Dashboard 3 — Energia e economia">
+                <span class="w-2 h-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
                 <span class="text-xs font-bold text-slate-300 group-hover:text-white">3</span>
             </a>
-            <a href="/goto/4" data-nav="4" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Segurança e câmeras">
-                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+            <a href="/goto/4" data-nav="4" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" aria-label="Dashboard 4 — Segurança e câmeras">
+                <span class="w-2 h-2 rounded-full bg-red-500" aria-hidden="true"></span>
                 <span class="text-xs font-bold text-slate-300 group-hover:text-white">4</span>
             </a>
         </div>
@@ -593,6 +611,7 @@
                 const activeBtn = document.querySelector('[data-nav="' + currentDash + '"]');
                 if (activeBtn) {
                     activeBtn.classList.add('bg-slate-800', 'ring-2', 'ring-white/20');
+                    activeBtn.setAttribute('aria-current', 'page');
                     const label = activeBtn.querySelector('span:last-child');
                     if (label) label.classList.replace('text-slate-300', 'text-white');
                 }

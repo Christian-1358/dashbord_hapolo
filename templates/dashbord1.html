@@ -90,6 +90,14 @@
         }
         .pro-badge { animation: pro-badge 1.8s ease-in-out infinite; }
         .pro-price { animation: pro-price 2.2s ease-in-out infinite; }
+        /* Respeita usuários com preferência de redução de movimento */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 </head>
 <body data-dashboard="1" class="text-blue-900 min-h-screen overflow-x-hidden selection:bg-blue-600 selection:text-white">
@@ -134,10 +142,10 @@
 
                 <!-- CTAs -->
                 <div class="flex flex-col sm:flex-row gap-3 pt-4">
-                    <a href="#planos" class="btn-gradient inline-block text-center text-white font-extrabold tracking-wider text-sm px-10 py-4 rounded-xl transition-all duration-300 hover:opacity-90 active:scale-95 shadow-xl shadow-blue-500/30">
+                    <a href="#planos" class="btn-gradient inline-block text-center text-white font-extrabold tracking-wider text-sm px-10 py-4 rounded-xl transition-all duration-300 hover:opacity-90 active:scale-95 shadow-xl shadow-blue-500/30" aria-label="Ver os planos disponíveis">
                         VER PLANOS
                     </a>
-                    <a href="#instale" class="inline-block text-center text-blue-700 bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-blue-50 font-extrabold tracking-wider text-sm px-10 py-4 rounded-xl transition-all duration-300">
+                    <a href="#instale" class="inline-block text-center text-blue-700 bg-white border-2 border-blue-200 hover:border-blue-400 hover:bg-blue-50 font-extrabold tracking-wider text-sm px-10 py-4 rounded-xl transition-all duration-300" aria-label="Ir para a seção de instalação do app">
                         BAIXAR APP
                     </a>
                 </div>
@@ -246,7 +254,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-gradient text-white font-bold text-[10px] py-2.5 rounded-lg shadow-md shadow-blue-500/30">
+                        <button type="button" class="btn-gradient text-white font-bold text-[10px] py-2.5 rounded-lg shadow-md shadow-blue-500/30" aria-label="Ver detalhes do BYD Seal conectado">
                             VER DETALHES
                         </button>
                     </div>
@@ -547,8 +555,8 @@
 
                 <!-- Toggle mensal/anual (decorativo) -->
                 <div class="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full p-1 shadow-sm">
-                    <button class="px-4 py-1.5 rounded-full bg-blue-600 text-white text-xs font-bold">Mensal</button>
-                    <button class="px-4 py-1.5 rounded-full text-slate-600 text-xs font-bold">Anual <span class="text-green-600">−20%</span></button>
+                    <button type="button" class="px-4 py-1.5 rounded-full bg-blue-600 text-white text-xs font-bold" aria-pressed="true">Mensal</button>
+                    <button type="button" class="px-4 py-1.5 rounded-full text-slate-600 text-xs font-bold" aria-pressed="false">Anual <span class="text-green-600">−20%</span></button>
                 </div>
             </div>
 
@@ -591,7 +599,7 @@
                         </li>
                     </ul>
 
-                    <button class="w-full py-3.5 rounded-xl border-2 border-blue-200 text-blue-700 hover:bg-blue-50 hover:border-blue-400 font-bold text-sm transition-all duration-200">
+                    <button type="button" class="w-full py-3.5 rounded-xl border-2 border-blue-200 text-blue-700 hover:bg-blue-50 hover:border-blue-400 font-bold text-sm transition-all duration-200" aria-label="Começar com o plano Starter grátis">
                         Começar grátis
                     </button>
                 </div>
@@ -647,8 +655,8 @@
                         </li>
                     </ul>
 
-                    <button class="w-full py-3.5 rounded-xl bg-white text-blue-700 hover:bg-amber-300 hover:text-blue-900 font-extrabold text-sm transition-all duration-200 shadow-lg">
-                        Assinar Pro agora 
+                    <button type="button" class="w-full py-3.5 rounded-xl bg-white text-blue-700 hover:bg-amber-300 hover:text-blue-900 font-extrabold text-sm transition-all duration-200 shadow-lg" aria-label="Assinar o plano Pro por R$ 29 por mês">
+                        Assinar Pro agora
                     </button>
                 </div>
 
@@ -695,7 +703,7 @@
                         </li>
                     </ul>
 
-                    <button class="w-full py-3.5 rounded-xl border-2 border-blue-200 text-blue-700 hover:bg-blue-50 hover:border-blue-400 font-bold text-sm transition-all duration-200">
+                    <button type="button" class="w-full py-3.5 rounded-xl border-2 border-blue-200 text-blue-700 hover:bg-blue-50 hover:border-blue-400 font-bold text-sm transition-all duration-200" aria-label="Falar com a equipe de vendas para o plano Business">
                         Falar com vendas
                     </button>
                 </div>
@@ -756,8 +764,8 @@
                         <h3 class="text-base font-bold tracking-tight text-blue-900">Baixe o app gratuitamente</h3>
                         <p class="text-sm text-slate-600 leading-relaxed">Disponível para iOS e Android. O plano Starter é gratuito para sempre — você só evolui se quiser mais recursos.</p>
                         <div class="flex gap-2 pt-1">
-                            <button class="bg-blue-900 hover:bg-blue-800 text-white text-xs px-4 py-2 rounded-lg font-semibold">App Store</button>
-                            <button class="bg-blue-900 hover:bg-blue-800 text-white text-xs px-4 py-2 rounded-lg font-semibold">Google Play</button>
+                            <button type="button" class="bg-blue-900 hover:bg-blue-800 text-white text-xs px-4 py-2 rounded-lg font-semibold" aria-label="Baixar na App Store">App Store</button>
+                            <button type="button" class="bg-blue-900 hover:bg-blue-800 text-white text-xs px-4 py-2 rounded-lg font-semibold" aria-label="Baixar no Google Play">Google Play</button>
                         </div>
                     </div>
                 </div>
@@ -796,19 +804,21 @@
                 </div>
 
                 <div class="flex justify-center gap-3">
-                    <a href="https://www.instagram.com/hapoloenergia/" target="_blank" rel="noopener noreferrer" class="border border-slate-200 hover:bg-pink-50 hover:border-pink-200 text-pink-600 px-5 py-2 rounded-full text-xs font-semibold transition-colors duration-200 flex items-center gap-1.5 bg-white shadow-sm">
-                        📸 Instagram
+                    <a href="https://www.instagram.com/hapoloenergia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Hapolo Energia (abre em nova aba)" class="border border-slate-200 hover:bg-pink-50 hover:border-pink-200 text-pink-600 px-5 py-2 rounded-full text-xs font-semibold transition-colors duration-200 flex items-center gap-2 bg-white shadow-sm">
+                        <img src="../assets/instagram.svg" alt="" aria-hidden="true" class="w-4 h-4">
+                        Instagram
                     </a>
-                    <a href="https://t.me/hapoloenergia" target="_blank" rel="noopener noreferrer" class="border border-slate-200 hover:bg-blue-50 hover:border-blue-200 text-blue-700 px-5 py-2 rounded-full text-xs font-semibold transition-colors duration-200 flex items-center gap-1.5 bg-white shadow-sm">
-                        ✈️ Telegram
+                    <a href="https://t.me/hapoloenergia" target="_blank" rel="noopener noreferrer" aria-label="Telegram da Hapolo Energia (abre em nova aba)" class="border border-slate-200 hover:bg-blue-50 hover:border-blue-200 text-blue-700 px-5 py-2 rounded-full text-xs font-semibold transition-colors duration-200 flex items-center gap-2 bg-white shadow-sm">
+                        <img src="../assets/telegram.svg" alt="" aria-hidden="true" class="w-4 h-4">
+                        Telegram
                     </a>
                 </div>
 
                 <div class="flex items-center justify-center gap-4 text-[10px] text-slate-400 pt-2">
                     <a href="#" class="hover:text-slate-700">Privacidade</a>
-                    <span>·</span>
+                    <span aria-hidden="true">·</span>
                     <a href="#" class="hover:text-slate-700">Termos</a>
-                    <span>·</span>
+                    <span aria-hidden="true">·</span>
                     <a href="#" class="hover:text-slate-700">Contato</a>
                 </div>
 
@@ -823,22 +833,22 @@
     <!-- ============================================ -->
     <!-- DOCK DE NAVEGAÇÃO ENTRE DASHBOARDS            -->
     <!-- ============================================ -->
-    <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
+    <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50" aria-label="Navegação entre dashboards">
         <div class="flex items-center gap-1 bg-slate-900/90 backdrop-blur-md border border-slate-700/50 rounded-full p-1.5 shadow-2xl">
-            <a href="/goto/1" data-nav="1" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Plataforma completa">
-                <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            <a href="/goto/1" data-nav="1" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" aria-label="Dashboard 1 — Plataforma completa">
+                <span class="w-2 h-2 rounded-full bg-blue-500" aria-hidden="true"></span>
                 <span class="text-xs font-bold text-slate-300 group-hover:text-white">1</span>
             </a>
-            <a href="/goto/2" data-nav="2" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Mobilidade e rotas">
-                <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+            <a href="/goto/2" data-nav="2" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" aria-label="Dashboard 2 — Mobilidade e rotas">
+                <span class="w-2 h-2 rounded-full bg-cyan-500" aria-hidden="true"></span>
                 <span class="text-xs font-bold text-slate-300 group-hover:text-white">2</span>
             </a>
-            <a href="/goto/3" data-nav="3" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Energia e economia">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <a href="/goto/3" data-nav="3" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" aria-label="Dashboard 3 — Energia e economia">
+                <span class="w-2 h-2 rounded-full bg-emerald-500" aria-hidden="true"></span>
                 <span class="text-xs font-bold text-slate-300 group-hover:text-white">3</span>
             </a>
-            <a href="/goto/4" data-nav="4" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Segurança e câmeras">
-                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+            <a href="/goto/4" data-nav="4" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" aria-label="Dashboard 4 — Segurança e câmeras">
+                <span class="w-2 h-2 rounded-full bg-red-500" aria-hidden="true"></span>
                 <span class="text-xs font-bold text-slate-300 group-hover:text-white">4</span>
             </a>
         </div>
@@ -850,6 +860,7 @@
                 const activeBtn = document.querySelector('[data-nav="' + currentDash + '"]');
                 if (activeBtn) {
                     activeBtn.classList.add('bg-slate-800', 'ring-2', 'ring-white/20');
+                    activeBtn.setAttribute('aria-current', 'page');
                     const label = activeBtn.querySelector('span:last-child');
                     if (label) label.classList.replace('text-slate-300', 'text-white');
                 }
