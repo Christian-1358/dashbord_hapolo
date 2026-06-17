@@ -56,7 +56,7 @@
         }
     </style>
 </head>
-<body class="text-gray-800 min-h-screen overflow-x-hidden selection:bg-emerald-500 selection:text-white">
+<body data-dashboard="3" class="text-gray-800 min-h-screen overflow-x-hidden selection:bg-emerald-500 selection:text-white">
 
     <!-- ============================================ -->
     <!-- SEÇÃO 1 — HERO (Energia)                     -->
@@ -562,6 +562,43 @@
 
         </div>
     </section>
+
+    <!-- ============================================ -->
+    <!-- DOCK DE NAVEGAÇÃO ENTRE DASHBOARDS            -->
+    <!-- ============================================ -->
+    <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
+        <div class="flex items-center gap-1 bg-slate-900/90 backdrop-blur-md border border-slate-700/50 rounded-full p-1.5 shadow-2xl">
+            <a href="/goto/1" data-nav="1" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Plataforma completa">
+                <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                <span class="text-xs font-bold text-slate-300 group-hover:text-white">1</span>
+            </a>
+            <a href="/goto/2" data-nav="2" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Mobilidade e rotas">
+                <span class="w-2 h-2 rounded-full bg-cyan-500"></span>
+                <span class="text-xs font-bold text-slate-300 group-hover:text-white">2</span>
+            </a>
+            <a href="/goto/3" data-nav="3" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Energia e economia">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span class="text-xs font-bold text-slate-300 group-hover:text-white">3</span>
+            </a>
+            <a href="/goto/4" data-nav="4" class="group flex items-center gap-1.5 px-3 py-2 rounded-full transition-all hover:bg-slate-800" title="Segurança e câmeras">
+                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                <span class="text-xs font-bold text-slate-300 group-hover:text-white">4</span>
+            </a>
+        </div>
+    </nav>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentDash = document.body.dataset.dashboard;
+            if (currentDash) {
+                const activeBtn = document.querySelector('[data-nav="' + currentDash + '"]');
+                if (activeBtn) {
+                    activeBtn.classList.add('bg-slate-800', 'ring-2', 'ring-white/20');
+                    const label = activeBtn.querySelector('span:last-child');
+                    if (label) label.classList.replace('text-slate-300', 'text-white');
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
