@@ -18,6 +18,8 @@ PAGES = {
     "2": "dashbord2.html",
     "3": "dashbord3.html",
     "4": "dashbord4.html",
+    "5": "dashbord5.html",
+    "6": "dashbord6.html",
 }
 
 current_page = PAGES["1"]
